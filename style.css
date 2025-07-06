@@ -1,3 +1,38 @@
-#header {
-    color: orange;
+header {
+  display: flex;
+  border: 1px solid;
+  justify-content: space-between;
+}
+.logo {
+  width: 100px;
+}
+.nav-items {
+  margin: 20px;
+  padding: 0 20px;
+}
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+.nav-items > ul > li {
+  margin: 0 10px;
+}
+
+.search {
+  margin: 10px;;
+}
+.rest-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.restaurant-card {
+  border: 1px solid;
+  width: 200px;
+  margin: 10px;
+  background-color: beige;
+}
+.rest-logo {
+  width: 100%;
+  height: auto;
 }
