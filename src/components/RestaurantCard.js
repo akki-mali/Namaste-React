@@ -1,7 +1,7 @@
 import { Restaurant_URL } from "../utils/constants";  
 
 const RestaurantCard =({restaurantData})=> {
-  const {name, location, cuisines, avgRating} = restaurantData?.data;
+  const {name, location, cuisines, avgRating} = restaurantData?.info;
   // Destructuring restaurantData to get the data object
 
   return (

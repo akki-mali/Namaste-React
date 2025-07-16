@@ -18,9 +18,6 @@ header {
   margin: 0 10px;
 }
 
-.search {
-  margin: 10px;;
-}
 .rest-container {
   display: flex;
   flex-wrap: wrap;
@@ -35,4 +32,25 @@ header {
 .rest-logo {
   width: 100%;
   height: auto;
+}
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.filter-container {
+  display: flex;
+  margin: 20px;
+}
+.search {
+  margin-right: 10px;
 }
