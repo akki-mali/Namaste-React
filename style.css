@@ -54,3 +54,6 @@ header {
 .search {
   margin-right: 10px;
 }
+.menu-item {
+  display: flex;
+}
