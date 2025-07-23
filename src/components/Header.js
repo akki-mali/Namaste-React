@@ -1,5 +1,5 @@
 import { LOGO_URL } from "../utils/constants";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router';
 import useOnlineStatus  from "../utils/useOnlineStatus";
 
@@ -13,18 +13,19 @@ const Header = () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <header>
+        <header className="flex justify-between border">
             <div className='logo-container'>
-                <img className="logo" src={LOGO_URL} alt="Logo"/>
+                <img className="w-30" src={LOGO_URL} alt="Logo"/>
             </div>
-            <nav className='nav-items'>
-                <ul>
-                    <li>Online Status : {onlineStatus ? 'green': 'red'}</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <li><Link to="#">Cart</Link></li>
-                    <li>
+            <nav className='flex items-center'>
+                <ul className="flex">
+                    <li className="p-4">Online Status : {onlineStatus ? 'green': 'red'}</li>
+                    <li className="p-4"><Link to="/">Home</Link></li>
+                    <li className="p-4"><Link to="/about">About</Link></li>
+                    <li className="p-4"><Link to="/contact">Contact</Link></li>
+                    <li className="p-4"><Link to="#">Cart</Link></li>
+                    <li className="p-4"><Link to="/grocery">Grocery</Link></li>
+                    <li className="p-4">
                         <button onClick={()=> {
                         btnText === 'Login' ? setBtnText("Logout") : setBtnText("Login");
                         console.log("Login button clicked");

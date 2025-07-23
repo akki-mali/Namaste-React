@@ -22,9 +22,9 @@ const RestaurantMenu = () => {
       {/* <p>{cuisines.join(", ")}</p> */}
       <p>{costForTwoMessage}</p>
       <div className="menu">
-        {menuItems.slice(1, menuItems.length - 1).map((item) => {
+        {menuItems.slice(1, menuItems.length - 1).map((item, idx) => {
           return (
-            <div key={item.card.card.categoryId} className="menu-item">
+            <div key={item.card.card.categoryId || item.card.card.title || idx} className="menu-item">
               <h2>{item.card.card.title}</h2>
                 {item?.card?.card?.categories?.map((menuItem) => {
                 return (
