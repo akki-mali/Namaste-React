@@ -2,9 +2,14 @@ import { LOGO_URL } from "../utils/constants";
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router';
 import useOnlineStatus  from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     const [btnText, setBtnText] = useState("Login");
+
+    const {loggedInUser} = useContext(UserContext)
+    console.log(loggedInUser, 'data')
 
     useEffect(() => {
         console.log("Header component mounted");
@@ -30,6 +35,7 @@ const Header = () => {
                         btnText === 'Login' ? setBtnText("Logout") : setBtnText("Login");
                         console.log("Login button clicked");
                     }}>{btnText}</button></li>
+                    <li className="p-2 font-bold">{loggedInUser}</li>
                 </ul>
             </nav>
         </header>

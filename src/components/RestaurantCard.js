@@ -15,4 +15,18 @@ const RestaurantCard =({restaurantData})=> {
   )
 }
 
+//HOC 
+
+//input is RestaurantCard and returns a new component that adds a label if the restaurant is open
+export const isOpen =(RestaurantCard)=> {
+  return ({props}) => {  // this is the new component and props is the restaurantData 
+    return (
+      <>
+      <label className="text-green-500">Open</label>
+      <RestaurantCard {...props}/>
+      </>
+    )
+  }
+}
+
 export default RestaurantCard;

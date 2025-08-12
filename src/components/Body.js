@@ -1,14 +1,18 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { isOpen } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router';
 import { RESTAURANT_LIST_API_URL } from "../utils/constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listofRestaurant, setlistofRestaurant] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const IsOpenRestaurantCard = isOpen(RestaurantCard);
+  const {loggedInUser, setUserName} = useContext(UserContext)
 
    useEffect(() => {
       fetchData();
@@ -50,11 +54,15 @@ const Body = () => {
         setFilteredList(filteredList);
         }}>Top Rated</button>
       </div>
+      <input className="p-2 border" type="text" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
       </div>
       <div className='rest-container flex flex-wrap'>
         {filteredList.map((resto)=> {
           return (
-          <Link key={resto.info.id} to={`/restaurant/${resto.info.id}`} className="h-[300px] bg-gray-50 rounded-xs m-2 hover:bg-gray-100"><RestaurantCard restaurantData={resto} /></Link>
+          <Link key={resto.info.id} to={`/restaurant/${resto.info.id}`} className="h-[300px] bg-gray-50 rounded-xs m-2 hover:bg-gray-100">
+            {resto.info.open ? <IsOpenRestaurantCard restaurantData={resto} />
+            :<RestaurantCard restaurantData={resto} />
+          }</Link>
         )
         })}
         
